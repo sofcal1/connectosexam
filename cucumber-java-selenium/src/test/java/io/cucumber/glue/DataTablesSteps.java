@@ -34,6 +34,7 @@ public class DataTablesSteps extends Context {
         arrFields.add(CommonConstants.DUE);
         arrFields.add(CommonConstants.WEB_SITE);
 
+        // validate each row and column against expected data
         for (int iRow = 1; iRow <= 4; iRow++) {
             String rawData = PropertyFile.getAttribute("testData" + iRow);
             String[] arrValues = rawData.split(",");

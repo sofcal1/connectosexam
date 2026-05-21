@@ -22,6 +22,7 @@ public class HomepageListsSteps extends Context {
         String rawExpected = PropertyFile.getAttribute("expected.links");
         String[] strExpected = rawExpected.split(",");
 
+        // loop through each link on the homepage by index
         for (int i = 1; i <= strExpected.length; i++) {
             String strValue = Base.getValue(String.valueOf(i), CommonTypes.DIV_ATEXT);
             arrActual.add(strValue);

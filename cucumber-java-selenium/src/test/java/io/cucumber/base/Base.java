@@ -15,6 +15,7 @@ public class Base {
     public static LocatorElements dynamicElem = new LocatorElements();
     public static WebDriver browser;
 
+    // logging helper
     public static void enterLog(String strLogs) {
         System.out.println(strLogs);
     }
@@ -29,11 +30,13 @@ public class Base {
         setDefaultImplicitWait();
     }
 
+    // resolves xpath template with actual values
     public static By dynamicElement(By by, Object... values) {
         String xpath = by.toString().replace("By.xpath: ", "");
         return By.xpath(String.format(xpath, values));
     }
 
+    // returns the locator based on element type
     public static By getElement(String strField, String strValue, String strType) {
         By tempElem = null;
         if (strType.equals(CommonTypes.ATEXT)) {
