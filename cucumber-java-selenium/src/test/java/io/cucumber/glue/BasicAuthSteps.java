@@ -17,6 +17,7 @@ public class BasicAuthSteps extends Context {
 
     @When("the 'Basic Auth' example is opened")
     public void clickBasicAuth() {
+    	// clicking this will trigger a browser popup so we handle auth via URL in the next step
         Base.clickElement(CommonConstants.BASIC_AUTH, CommonTypes.ATEXT);
     }
 
@@ -26,6 +27,7 @@ public class BasicAuthSteps extends Context {
         String username = PropertyFile.getAttribute("username");
         String password = PropertyFile.getAttribute("password");
         String uri = PropertyFile.getAttribute("uri");
+        // bypass the auth popup by embedding credentials in the URL
         Base.goToURL("https://" + username + ":" + password + uri);
     }
 
