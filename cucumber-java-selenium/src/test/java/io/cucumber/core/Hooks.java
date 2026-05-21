@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+import io.cucumber.base.Base;
 
 public class Hooks extends Context {
 
@@ -26,6 +27,7 @@ public class Hooks extends Context {
     options.addArguments("start-maximized");
     options.setCapability(ChromeOptions.LOGGING_PREFS, logPrefs);
     manager.setDriver(new ChromeDriver(options));
+    Base.browser = manager.getDriver();
     System.out.println("Made driver");
   }
 
@@ -43,7 +45,7 @@ public class Hooks extends Context {
 
   @After
   public void after() {
-    getDriver().quit();
+    Base.quitBrowser();
     System.out.println("Quit driver");
   }
 
