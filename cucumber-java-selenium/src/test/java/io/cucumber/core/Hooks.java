@@ -45,8 +45,8 @@ public class Hooks extends Context {
 
   @After
   public void after() {
+	System.out.println("Quit driver");
     Base.quitBrowser();
-    System.out.println("Quit driver");
   }
 
 }
