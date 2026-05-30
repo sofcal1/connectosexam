@@ -1,6 +1,6 @@
 package io.cucumber.glue;
 
-import io.cucumber.base.Base;
+import static io.cucumber.base.Base.*;
 import io.cucumber.constants.CommonConstants;
 import io.cucumber.constants.CommonTypes;
 import io.cucumber.core.Context;
@@ -18,7 +18,7 @@ public class BasicAuthSteps extends Context {
     @When("the 'Basic Auth' example is opened")
     public void clickBasicAuth() {
     	// clicking this will trigger a browser popup so we handle auth via URL in the next step
-        Base.clickElement(CommonConstants.BASIC_AUTH, CommonTypes.ATEXT);
+        clickElement(CommonConstants.BASIC_AUTH, CommonTypes.ATEXT);
     }
 
     @When("valid credentials are supplied")
@@ -28,11 +28,11 @@ public class BasicAuthSteps extends Context {
         String password = PropertyFile.getAttribute("password");
         String uri = PropertyFile.getAttribute("uri");
         // bypass the auth popup by embedding credentials in the URL
-        Base.goToURL("https://" + username + ":" + password + uri);
+        goToURL("https://" + username + ":" + password + uri);
     }
 
     @Then("Congratulations should be displayed")
     public void verifySuccessMessage() {
-        Base.verifyElement(CommonConstants.CONGRATULATIONS_PROPER_CREDENTIALS, CommonTypes.PTEXT);
+        verifyElement(CommonConstants.CONGRATULATIONS_PROPER_CREDENTIALS, CommonTypes.PTEXT);
     }
 }

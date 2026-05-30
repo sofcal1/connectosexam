@@ -2,7 +2,7 @@ package io.cucumber.glue;
 
 import java.util.ArrayList;
 
-import io.cucumber.base.Base;
+import static io.cucumber.base.Base.*;
 import io.cucumber.constants.CommonConstants;
 import io.cucumber.constants.CommonTypes;
 import io.cucumber.core.Context;
@@ -20,7 +20,7 @@ public class DataTablesSteps extends Context {
 
     @When("the 'Sortable Data Tables' example is opened")
     public void clickSortableData() {
-        Base.clickElement(CommonConstants.SORTABLE_DATA_TABLES, CommonTypes.ATEXT);
+        clickElement(CommonConstants.SORTABLE_DATA_TABLES, CommonTypes.ATEXT);
     }
 
     @Then("Example 1 displays the following results:")
@@ -41,7 +41,7 @@ public class DataTablesSteps extends Context {
             for (int iCol = 0; iCol < arrFields.size(); iCol++) {
                 String strField = arrFields.get(iCol);
                 String strExpectedValue = arrValues[iCol];
-                Base.getRowColumnValue(strField, iRow, strExpectedValue, CommonTypes.ROW_SPAN);
+                getRowColumnValue(strField, iRow, strExpectedValue, CommonTypes.ROW_SPAN);
             }
         }
     }
